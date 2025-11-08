@@ -10,10 +10,12 @@ local sens = 1.0
 
 local primary_col = "#d08e2b"
 local secondary_col = "#222222"
+local is_chat_mode = false
+local chat_mode_text = nil
 
 local config = {
-    layout = "us",
     input = {
+        layout = "norge2",
         repeat_rate = 20,
         repeat_delay = 150,
     },
@@ -141,6 +143,10 @@ end
 local function resize(w, h)
     return function()
         reset()
+        if is_chat_mode then
+            return false
+        end
+
         local aw, ah = waywall.active_res()
         if aw == w and ah == h then
             waywall.set_resolution(0, 0)
@@ -174,17 +180,51 @@ local function thin()
     end
 end
 
+local function chatmode()
+    reset()
+
+    if is_chat_mode then
+        waywall.set_keymap({
+            layout = "norge2"
+        })
+
+        if chat_mode_text then
+            chat_mode_text:close()
+            chat_mode_text = nil
+        end
+    else
+        waywall.set_keymap({
+            layout = "us"
+        })
+
+        chat_mode_text = waywall.text("CHAT MODE ENABLED", { x = 60, y = 1380, color = "#FFFFFF", size = 6 })
+    end
+
+    is_chat_mode = not is_chat_mode
+end
+
 config.actions = {
     ["*-Y"] = resize(3840, 800),
-    ["*-E"] = thin,
-    ["*-Z"] = eye_measure,
+    ["*-E"] = function()
+        if is_chat_mode then
+            waywall.press_key("E")
+        end
+        thin()
+    end,
+    ["*-Z"] = function()
+        if is_chat_mode then
+            waywall.press_key("Z")
+        end
+        eye_measure()
+    end,
     ["*-F7"] = exec_ninb,
     ["*-F8"] = toggle_ninb,
+    ["*-F3"] = chatmode,
 }
 
 config.input.remaps = {
     ["MB4"] = "F3",
-    ["LEFTCTRL"] = "RIGHTSHIFT"
+    ["LEFTCTRL"] = "RIGHTSHIFT",
 }
 
 return config
