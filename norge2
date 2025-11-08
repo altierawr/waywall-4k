@@ -1,0 +1,34 @@
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    name[Group1]= "English (Custom)";
+
+    include "us(basic)"
+
+    // Number row modifications
+    key <AE02> { [ v, V ] };  // 2 -> V
+    key <AE03> { [ o, O ] };  // 3 -> O
+    key <AE04> { [ p, P ] };  // 4 -> P
+
+    // Top row (QWERTY) modifications
+    key <AD01> { [ e, E ] };  // Q -> E
+    key <AD02> { [ n, N ] };  // W -> N
+    key <AD03> { [ oslash, Oslash ] };  // E -> ø
+    key <AD05> { [ b, B ] };  // T -> B
+
+    // Home row (ASDF) modifications
+    key <AC01> { [ l, L ] };  // A -> L
+    key <AC02> { [ d, D ] };  // S -> D
+    key <AC03> { [ i, I ] };  // D -> I
+    key <AC04> { [ u, U ] };  // F -> U
+
+    // Bottom row (ZXCV) modifications
+    key <LSGT> { [ t, T ] };  // Key between Z and left shift -> T
+    key <AB01> { [ aring, Aring ] };  // Z -> å
+    key <AB02> { [ k, K ] };  // X -> K
+    key <AB03> { [ h, H ] };  // C -> H
+    key <AB04> { [ s, S ] };  // V -> S
+
+    include "level3(ralt_switch)"
+};
+
