@@ -201,10 +201,13 @@ local function reset()
     for _, m in pairs(mirrors.thin_pie) do m(false) end
 end
 
+local is_ingame = helpers.ingame_only(function() end)
+
 local function resize(w, h)
     return function()
         reset()
-        if is_chat_mode then
+        if is_chat_mode or is_ingame() == false then
+            waywall.set_resolution(0, 0)
             return false
         end
 
@@ -301,13 +304,13 @@ local config = {
 config.actions = {
     ["*-Y"] = resize(3840, 800),
     ["*-E"] = function()
-        if is_chat_mode then
+        if is_ingame() == false then
             waywall.press_key("E")
         end
         thin()
     end,
     ["*-Z"] = function()
-        if is_chat_mode then
+        if is_ingame() == false then
             waywall.press_key("Z")
         end
         eye_measure()
