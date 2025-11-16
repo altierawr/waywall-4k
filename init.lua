@@ -2,13 +2,40 @@ local waywall = require("waywall")
 local helpers = require("waywall.helpers")
 
 -- CONFIGS - Edit these to customize
-local sens = 1.0
-local eye_measure_sens = 0.04
+--
+-- Paths to some files. MAKE SURE TO CHANGE THESE!
+local PATHS = {
+    overlay_png = "/home/alt/mcsr/wayfiles/measuring_overlay.png",
+    ninbot_jar  = "/home/alt/mcsr/wayfiles/Ninjabrain-Bot-1.5.1.jar",
+}
+
+-- Remaps that are active while playing
+local remaps_ingame = {
+    ["MB4"] = "F3",
+    ["MB5"] = "L", -- for chat key for search crafting
+    ["V"] = "BACKSPACE",
+    ["LEFTCTRL"] = "RIGHTSHIFT",
+    ["CAPSLOCK"] = "LEFTCTRL",
+    ["GRAVE"] = "ESC",
+    ["H"] = "0"
+}
+
+-- Remaps that are active while in chat mode
+local remaps_chat_mode = {
+    ["MB4"] = "F3",
+    ["MB5"] = "L", -- for chat key for search crafting
+    ["GRAVE"] = "ESC",
+    ["CAPSLOCK"] = "LEFTCTRL",
+}
 
 -- Keyboard layout for ingame (search crafting) + chatting mode. Make sure these are installed system-wide
 -- You can set both to the same one (e.g. "us") if you use english for search crating or don't use search crafting at all
 local ingame_layout = "norge2"
 local chat_mode_layout = "us"
+
+-- Sensitivity multipliers for in-game and eye measurement
+local sens = 1.0
+local eye_measure_sens = 0.04
 
 -- Colors for pie and some texts
 local primary_col = "#d08e2b"
@@ -41,31 +68,6 @@ local ecount_mirror_y = 1000
 -- Pie directory mirror
 local pie_dir_mirror_enabled = true
 local pie_dir_y = 1300
-
--- Paths to some files. MAKE SURE TO CHANGE THESE!
-local PATHS = {
-    overlay_png = "/home/alt/mcsr/wayfiles/measuring_overlay.png",
-    ninbot_jar  = "/home/alt/mcsr/wayfiles/Ninjabrain-Bot-1.5.1.jar",
-}
-
--- Remaps that are active while playing
-local remaps_ingame = {
-    ["MB4"] = "F3",
-    ["MB5"] = "L", -- for chat key for search crafting
-    ["V"] = "BACKSPACE",
-    ["LEFTCTRL"] = "RIGHTSHIFT",
-    ["CAPSLOCK"] = "LEFTCTRL",
-    ["GRAVE"] = "ESC",
-    ["H"] = "0"
-}
-
--- Remaps that are active while in chat mode
-local remaps_chat_mode = {
-    ["MB4"] = "F3",
-    ["MB5"] = "L", -- for chat key for search crafting
-    ["GRAVE"] = "ESC",
-    ["CAPSLOCK"] = "LEFTCTRL",
-}
 
 -- CONFIGS OVER - don't edit these. More configs at the end of the file!
 local is_chat_mode = false
