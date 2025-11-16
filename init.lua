@@ -1,8 +1,12 @@
 local waywall = require("waywall")
 local helpers = require("waywall.helpers")
 
--- CONFIGS - Edit these to customize
---
+---------------------------------------
+--                                   --
+-- CONFIGS - edit these to customize --
+--                                   --
+---------------------------------------
+
 -- Paths to some files. MAKE SURE TO CHANGE THESE!
 local PATHS = {
     overlay_png = "/home/alt/mcsr/wayfiles/measuring_overlay.png",
@@ -69,9 +73,11 @@ local ecount_mirror_y = 1000
 local pie_dir_mirror_enabled = true
 local pie_dir_y = 1300
 
--- CONFIGS OVER - don't edit these. More configs at the end of the file!
-local is_chat_mode = false
-local chat_mode_text_inst = nil
+---------------------------------------------------------------------------
+--                                                                       --
+-- CONFIGS OVER - don't edit these. MORE CONFIGS AT THE END OF THE FILE! --
+--                                                                       --
+---------------------------------------------------------------------------
 
 local function toggler(make_fn)
     local this
@@ -110,6 +116,9 @@ end
 local function toggle_ninb()
     helpers.toggle_floating()
 end
+
+local is_chat_mode = false
+local chat_mode_text_inst = nil
 
 local pie_dir_rows = 8
 local pie_dir_size_mult = 4
@@ -294,7 +303,12 @@ local function pie_dir()
     end
 end
 
--- MORE CONFIGS, edit these to your liking
+----------------------------------------------
+--                                          --
+-- MORE CONFIGS - edit these to your liking --
+--                                          --
+----------------------------------------------
+
 local config = {
     input = {
         layout = ingame_layout, -- change this at the top of the file
