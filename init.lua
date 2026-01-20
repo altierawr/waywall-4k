@@ -126,7 +126,7 @@ local pie_dir_width = 100
 local pie_dir_mirror_height = 8 * pie_dir_rows * pie_dir_size_mult
 local pie_dir_x = 3840 - pie_dir_width * pie_dir_size_mult
 
-local pie_dir_mirror = mirror({ x = 3490, y = 1882, w = pie_dir_width, h = 8 * pie_dir_rows },
+local pie_dir_mirror = mirror({ x = 3510, y = 1940, w = pie_dir_width, h = 8 * pie_dir_rows },
     { x = pie_dir_x, y = pie_dir_y, w = pie_dir_width * pie_dir_size_mult, h = pie_dir_mirror_height })
 local is_pie_dir_mirror_visible = false
 
@@ -318,6 +318,10 @@ local config = {
     theme = {
         ninb_anchor = "topright",
         background = "#000000"
+    },
+    window = {
+        fullscreen_width = 3840,
+        fullscreen_height = 2160
     }
 }
 
