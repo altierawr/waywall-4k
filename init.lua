@@ -314,6 +314,7 @@ local config = {
     layout = ingame_layout,     -- change this at the top of the file
     repeat_rate = 40,
     repeat_delay = 350,
+    sensitivity = sens,
   },
   theme = {
     ninb_anchor = "topright",
